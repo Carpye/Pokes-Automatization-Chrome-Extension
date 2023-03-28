@@ -1,0 +1,36 @@
+{
+  "name": "Pokes Automatization",
+  "description": "An Chrome Extension to automaticly send pokes every time someone pokes you.",
+  "homepage_url": "https://github.com/Carpye/Pokes-Automatization-Chrome-Extension",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "action": {
+    "default_title": "execute.js will run",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "run_at" : "document_idle",
+      "js": ["after.js"],
+      "css": ["style.css"],
+      "matches": [
+        "https://*/*",
+        "https://facebook.com/pokes/*",
+        "http://*/*"
+      ]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": [
+    "tabs",
+    "scripting",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://*/*",
+    "https://facebook.com/pokes/*",
+    "http://*/*"
+  ]
+}
